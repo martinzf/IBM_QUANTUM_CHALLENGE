@@ -1,0 +1,71 @@
+digraph G {
+subgraph cluster_0 {
+fontname=helvetica;
+label="[0] ";
+labeljust=l;
+1 [color=red, fontname=helvetica, label=CheckMap, shape=rectangle];
+2 [color=black, fontname=helvetica, fontsize=10, label=coupling_map, shape=ellipse, style=solid];
+2 -> 1;
+3 [color=black, fontname=helvetica, fontsize=10, label=property_set_field, shape=ellipse, style=dashed];
+3 -> 1;
+}
+
+subgraph cluster_4 {
+fontname=helvetica;
+label="[1] ConditionalController";
+labeljust=l;
+5 [color=blue, fontname=helvetica, label=BarrierBeforeFinalMeasurements, shape=rectangle];
+6 [color=black, fontname=helvetica, fontsize=10, label=label, shape=ellipse, style=dashed];
+6 -> 5;
+1 -> 5;
+7 [color=blue, fontname=helvetica, label=BasicSwap, shape=rectangle];
+8 [color=black, fontname=helvetica, fontsize=10, label=coupling_map, shape=ellipse, style=solid];
+8 -> 7;
+9 [color=black, fontname=helvetica, fontsize=10, label=fake_run, shape=ellipse, style=dashed];
+9 -> 7;
+5 -> 7;
+}
+
+subgraph cluster_10 {
+fontname=helvetica;
+label="[2] ConditionalController";
+labeljust=l;
+11 [color=red, fontname=helvetica, label=VF2PostLayout, shape=rectangle];
+12 [color=black, fontname=helvetica, fontsize=10, label=target, shape=ellipse, style=dashed];
+12 -> 11;
+13 [color=black, fontname=helvetica, fontsize=10, label=coupling_map, shape=ellipse, style=dashed];
+13 -> 11;
+14 [color=black, fontname=helvetica, fontsize=10, label=properties, shape=ellipse, style=dashed];
+14 -> 11;
+15 [color=black, fontname=helvetica, fontsize=10, label=seed, shape=ellipse, style=dashed];
+15 -> 11;
+16 [color=black, fontname=helvetica, fontsize=10, label=call_limit, shape=ellipse, style=dashed];
+16 -> 11;
+17 [color=black, fontname=helvetica, fontsize=10, label=time_limit, shape=ellipse, style=dashed];
+17 -> 11;
+18 [color=black, fontname=helvetica, fontsize=10, label=strict_direction, shape=ellipse, style=dashed];
+18 -> 11;
+19 [color=black, fontname=helvetica, fontsize=10, label=max_trials, shape=ellipse, style=dashed];
+19 -> 11;
+7 -> 11;
+}
+
+subgraph cluster_20 {
+fontname=helvetica;
+label="[3] ConditionalController";
+labeljust=l;
+21 [color=blue, fontname=helvetica, label=ApplyLayout, shape=rectangle];
+11 -> 21;
+}
+
+subgraph cluster_22 {
+fontname=helvetica;
+label="[4] ";
+labeljust=l;
+23 [color=blue, fontname=helvetica, label=FilterOpNodes, shape=rectangle];
+24 [color=black, fontname=helvetica, fontsize=10, label=predicate, shape=ellipse, style=solid];
+24 -> 23;
+21 -> 23;
+}
+
+}
